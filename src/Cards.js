@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/cards.css';
 import Card from './Card';
 
 class Cards extends Component {
@@ -8,38 +7,38 @@ class Cards extends Component {
     cards: this.getInitialCards(),
   };
   getInitialCards() {
-    let cards;
+    let cards = [];
     for (var i = 1; i <= 52; i++) {
-      cards.push(i);
+      console.log(i);
+      cards[i] = i;
     }
     return cards;
   }
 
-  handelshowcard(id) {
-    var { showCards } = this.state;
-    //cards = cards.filter(item => item != id);
+  handelshowcard(e) {
+    var { showCards, cards } = this.state;
 
-    //shift from cards
+    // extract first element from cards
+    var firstElement = cards.shift();
+    console.log('firstElement', firstElement);
+    console.log('showCard', showCards);
 
-    let show = show.push({ id });
+    showCards.push({ firstElement });
+    console.log('showCard2', showCards);
 
-    // First in show cards
+    // add first element in show table show cards
 
-    this.setState({ show });
-
-    return show;
+    return showCards;
   }
 
   render() {
-    let { show, cards } = this.state;
-    let { id } = this.props;
-    cards = this.handelGetCard(id);
-    show = this.handelshowcard(id);
+    // let { showCards } = this.state;
+    let showCards = this.handelshowcard();
 
     return (
       <div className="container">
         <div onClick={e => this.handelshowcard(e)}> get cards</div>
-        {show && show.map(item => <Card id={item} key={item} />)}
+        {showCards && showCards.map(item => <Card id={item} key={item} />)}
       </div>
     );
   }

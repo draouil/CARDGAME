@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactCardFlip from 'react-card-flip';
-import '../css/cards.css';
 
 class Card extends Component {
   constructor() {
