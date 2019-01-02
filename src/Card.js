@@ -11,18 +11,15 @@ class Card extends Component {
   }
 
   handleClick = e => {
-    let { id } = this.state;
-    id = id + 1;
     e.preventDefault();
     this.setState(prevState => ({
       isFlipped: !prevState.isFlipped,
       visible: true,
     }));
-    this.setState({ id });
   };
 
   render() {
-    const { id } = this.state;
+    const { id } = this.props;
     return (
       <div>
         <ReactCardFlip

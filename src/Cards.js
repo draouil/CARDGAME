@@ -9,21 +9,19 @@ class Cards extends Component {
   getInitialCards() {
     let cards = [];
     for (var i = 1; i <= 52; i++) {
-      console.log(i);
-      cards[i] = i;
+      cards.push(i);
     }
     return cards;
   }
 
   handelshowcard(e) {
     var { showCards, cards } = this.state;
-
     // extract first element from cards
     var firstElement = cards.shift();
     console.log('firstElement', firstElement);
     console.log('showCard', showCards);
 
-    showCards.push({ firstElement });
+    showCards.push(firstElement);
     console.log('showCard2', showCards);
 
     // add first element in show table show cards
